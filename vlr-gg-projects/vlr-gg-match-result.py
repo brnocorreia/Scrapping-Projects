@@ -2,7 +2,7 @@ import requests
 import re
 from bs4 import BeautifulSoup
 
-url_player = 'https://www.vlr.gg/184654/mibr-female-vs-black-dragons-female-game-changers-2023-brazil-series-1-main-event-lr3'
+url_player = input('Insert the match URL on vlr.gg to continue: ')
 headers = {'user-agent':'Mozilla/5.0'}
 
 response = requests.get(url_player, headers = headers)
@@ -76,12 +76,10 @@ for match in matches:
     
     if teamA.find('div', class_='score mod-win') is not None and teamB.find('div', class_='score mod-win') is None:
 
-        
         mapscore_a = teamA.find('div', attrs={'class':'score mod-win'}).text.strip()
         mapscore_b = teamB.find('div', attrs={'class':'score'}).text.strip()
 
         print('Map: ' + map_names[i] + ' | ' + team_a_name + ' ' + mapscore_a + ' x ' + mapscore_b + ' ' + team_b_name)
-        print('\n')
         # for mapscore_teamA, mapscore_teamB in zip(teamA_mapscores,teamB_mapscores):
         #     mapscore_a = mapscore_teamA.find('div', attrs={'class':'score mod-win'})
         #     mapscore_b = mapscore_teamB.find('div', attrs={'class':'score'})
@@ -91,12 +89,10 @@ for match in matches:
         
     else: 
         
-
         mapscore_a = teamA.find('div', attrs={'class':'score'}).text.strip()
         mapscore_b = teamB.find('div', attrs={'class':'score mod-win'}).text.strip()
 
         print('Map: ' + map_names[i] + ' | ' + team_a_name + ' ' + mapscore_a + ' x ' + mapscore_b + ' ' + team_b_name)
-        print('\n')
         # if teamA.find('div', class_='score mod-win') is not None and teamB.find('div', class_='score mod-win') is None:
 
         # for mapscore_teamA, mapscore_teamB in zip(teamA_mapscores,teamB_mapscores):
