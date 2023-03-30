@@ -79,9 +79,16 @@ if site.find('span', attrs={'class':'match-header-vs-note mod-live'}) is None:
         if teamA.find('div', class_='score mod-win') is not None and teamB.find('div', class_='score mod-win') is None:
 
             mapscore_a = teamA.find('div', attrs={'class':'score mod-win'}).text.strip()
+            mapscore_a_ct = teamA.find('span', attrs={'class':'mod-ct'}).text.strip()
+            mapscore_a_t = teamA.find('span', attrs={'class':'mod-t'}).text.strip()
             mapscore_b = teamB.find('div', attrs={'class':'score'}).text.strip()
+            mapscore_b_ct = teamB.find('span', attrs={'class':'mod-ct'}).text.strip()
+            mapscore_b_t = teamB.find('span', attrs={'class':'mod-t'}).text.strip()
 
-            print('Map: ' + map_names[i] + ' | ' + team_a_name + ' ' + mapscore_a + ' x ' + mapscore_b + ' ' + team_b_name)
+            mapscore_a_halfs = (' [Def: ' + mapscore_a_ct + ' | Atk: ' + mapscore_a_t + '] ')
+            mapscore_b_halfs = (' [Def: ' + mapscore_b_ct + ' | Atk: ' + mapscore_b_t + '] ')
+
+            print('Map: ' + map_names[i] + ' | ' + team_a_name + ' ' + mapscore_a_halfs +mapscore_a + ' x ' + mapscore_b + mapscore_b_halfs + ' ' + team_b_name)
             # for mapscore_teamA, mapscore_teamB in zip(teamA_mapscores,teamB_mapscores):
             #     mapscore_a = mapscore_teamA.find('div', attrs={'class':'score mod-win'})
             #     mapscore_b = mapscore_teamB.find('div', attrs={'class':'score'})
@@ -92,9 +99,16 @@ if site.find('span', attrs={'class':'match-header-vs-note mod-live'}) is None:
         else: 
             
             mapscore_a = teamA.find('div', attrs={'class':'score'}).text.strip()
+            mapscore_a_ct = teamA.find('span', attrs={'class':'mod-ct'}).text.strip()
+            mapscore_a_t = teamA.find('span', attrs={'class':'mod-t'}).text.strip()
             mapscore_b = teamB.find('div', attrs={'class':'score mod-win'}).text.strip()
+            mapscore_b_ct = teamB.find('span', attrs={'class':'mod-ct'}).text.strip()
+            mapscore_b_t = teamB.find('span', attrs={'class':'mod-t'}).text.strip()
 
-            print('Map: ' + map_names[i] + ' | ' + team_a_name + ' ' + mapscore_a + ' x ' + mapscore_b + ' ' + team_b_name)
+            mapscore_a_halfs = (' [Def: ' + mapscore_a_ct + ' | Atk: ' + mapscore_a_t + '] ')
+            mapscore_b_halfs = (' [Def: ' + mapscore_b_ct + ' | Atk: ' + mapscore_b_t + '] ')
+
+            print('Map: ' + map_names[i] + ' | ' + team_a_name + ' ' + mapscore_a_halfs +mapscore_a + ' x ' + mapscore_b + mapscore_b_halfs + ' ' + team_b_name)
             # if teamA.find('div', class_='score mod-win') is not None and teamB.find('div', class_='score mod-win') is None:
 
             # for mapscore_teamA, mapscore_teamB in zip(teamA_mapscores,teamB_mapscores):
